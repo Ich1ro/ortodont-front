@@ -1,11 +1,18 @@
 import React from 'react';
 import './Profile.scss';
 
+import { useNavigate } from 'react-router-dom';
 import { users } from '../../data';
 import Icon from '../../Icon';
 
 const Profile = () => {
+  const navigate = useNavigate()
 	const user = users.find(user => user.id === 8);
+
+  const logout = () => {
+    localStorage.setItem('user', false)
+    navigate('/login/admin')
+  }
 
 	return (
 		<div className="profile-container">
@@ -32,7 +39,7 @@ const Profile = () => {
 					</div>
 				</div>
 			</div>
-			<div className="profile-logout">
+			<div className="profile-logout" onClick={logout}>
         <div className="profile-logout-icon"><Icon name='logout' /></div>
         <div className="profile-logout-text">Logout</div>
         <div className="profile-logout-empty"></div>
