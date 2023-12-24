@@ -5,7 +5,7 @@ import Icon from '../../Icon';
 const PracticeInfo = () => {
 	return (
 		<div className="info-container">
-			<div className="info-header">Practice Info</div>
+			<div className="info-header-title">Practice Info</div>
 			<div className="clinic-title">
 				<img src="/img/avatar.png" alt="avatar" width={150} />
 				<div className="clinic-title-info">
@@ -37,7 +37,7 @@ const PracticeInfo = () => {
 			</div>
       <div className="clinic-info-string">
 				<b className="clinic-info-string-title">Web-Site:</b>
-				<a className="clinic-info-string-details">www.fmyortho.com</a>
+				<a className="clinic-info-string-details" href='/'>www.fmyortho.com</a>
 			</div>
       <div className="clinic-info-string">
 				<b className="clinic-info-string-title">Maximum Payout Discount:</b>

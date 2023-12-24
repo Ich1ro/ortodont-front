@@ -2,8 +2,9 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 100%;
+    height: calc(100vh - 55px);
     width: 25%;
+    overflow: auto;
 
     .nav-item {
         color: #7D8485;
@@ -21,6 +22,7 @@
          
         > svg {
             padding-right: 20px;
+            box-sizing: unset !important;
         }
     }
 

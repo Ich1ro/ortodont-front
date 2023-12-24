@@ -1,0 +1,55 @@
+.patient-card-info {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    align-items: center;
+
+    .patient-card-avatar {
+        margin: 32.5px 10px 0 10px;
+        width: 30%;
+        height: 80%;
+        border-radius: 10px;
+    }
+
+    > svg {
+        margin-top: 32.5px;
+    }
+
+    .patient-card-details {
+        height: 100%;
+
+        > h5 {
+            padding-top: 25px;
+            padding-bottom: 5px;
+            margin: 0;
+            font-size: 15px;
+        }
+
+        .patient-card-number {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        .patient-card-status-title {
+            color: #26A4ED;
+            font-size: 15px;
+            text-transform: uppercase;
+            margin-bottom: 0;
+        }
+
+        .patient-card-status {
+            font-size: 14px;
+        }
+    }
+}
+
+.patient-card-date {
+    padding: 5px 10px;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: #BCBDBE;
+    font-size: 14px;
+}

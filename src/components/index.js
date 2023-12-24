@@ -9,6 +9,9 @@ import Treatments from "./Treatments/Treatments";
 import Users from "./Users/Users";
 import Info from "./Info/Info";
 import Header from "./Header/Header";
+import ConsultationsSidebar from "./ConsultationsSidebar/ConsultationsSidebar";
+import PatientCard from "./PatientCard/PatientCard";
+import PatientInfo from "./PatientInfo/PatientInfo";
 
 export {
     AdminLogin,
@@ -21,5 +24,8 @@ export {
     Treatments,
     Users,
     Info,
-    Header
+    Header,
+    ConsultationsSidebar,
+    PatientCard,
+    PatientInfo
 }

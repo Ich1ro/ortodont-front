@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { Login, Main, Consultations, Profile } from '../pages';
-import { AdminLogin, ClientLogin, AddOns, Discounts, Locations, PracticeInfo, Treatments, Users, Info, ResetPassword } from '../components';
+import { AdminLogin, ClientLogin, AddOns, Discounts, Locations, PracticeInfo, Treatments, Users, Info, ResetPassword, PatientInfo } from '../components';
 
 export const router = createBrowserRouter([
 	{
@@ -39,7 +39,13 @@ export const router = createBrowserRouter([
 			},
 			{
 				path: '/consultations',
-				element: <Consultations />
+				element: <Consultations />,
+				children: [
+					{
+						path: '/consultations/:id',
+						element: <PatientInfo />
+					}
+				]
 			},
 			{
 				path: '/profile',

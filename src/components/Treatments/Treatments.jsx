@@ -3,6 +3,7 @@ import './Treatments.scss';
 
 import { Table, Checkbox } from 'rsuite';
 import { treatmentTypes } from '../../data';
+import Icon from '../../Icon';
 
 const { Column, HeaderCell, Cell } = Table;
 
@@ -20,9 +21,10 @@ const Treatments = () => {
 	}
 
 	const handleCheckAll = (value, checked) => {
-		const keys = checked ? treatmentTypes.map(item => item.practiceId) : [];
+		const keys = checked ? treatmentTypes.map(item => item.id) : [];
 		setCheckedKeys(keys);
 	};
+	
 	const handleCheck = (value, checked) => {
 		const keys = checked ? [...checkedKeys, value] : checkedKeys.filter(item => item !== value);
 		setCheckedKeys(keys);
@@ -44,7 +46,28 @@ const Treatments = () => {
 
 	return (
 		<div className="info-container">
-			<div className="info-header">Treatments</div>
+			<div className="info-header">
+				<div className="info-header-right">
+					<div className="info-header-right-title">
+						Treatment types
+					</div>
+					<div className="info-header-right-search">
+						<input type="text" placeholder='Search by Name...'/>
+						<div className="info-header-right-search-icon">
+							<Icon name='search' styles={{width: 18}} />
+						</div>
+					</div>
+				</div>
+				<div className="info-header-left">
+					<div className="info-header-left-edit">
+						<Icon name='edit' />
+					</div>
+					<div className="info-header-left-delete">
+						<Icon name='delete' />
+					</div>
+				</div>
+			</div>
+
 			<Table data={treatmentTypes} autoHeight>
 				<Column width={50} align='center'>
 					<HeaderCell style={{ backgroundColor: '#26A4ED', color: 'white', fontWeight: 'bold', fontSize: 16}}>
@@ -58,7 +81,7 @@ const Treatments = () => {
 							/>
 						</div>
 					</HeaderCell>
-					<CheckCell dataKey="practiceId" checkedKeys={checkedKeys} onChange={handleCheck} />
+					<CheckCell dataKey="id" checkedKeys={checkedKeys} onChange={handleCheck} />
 				</Column>
 				<Column flexGrow={2} align="start" verticalAlign='middle' height={50}>
 					<HeaderCell style={{ backgroundColor: '#26A4ED', color: 'white', fontWeight: 'bold', fontSize: 16}}>Treatment Type</HeaderCell>

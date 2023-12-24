@@ -1,5 +1,5 @@
-import React from 'react'
-import './Users.scss'
+import React from 'react';
+import './Users.scss';
 
 import { Table, Checkbox } from 'rsuite';
 import { users } from '../../data';
@@ -8,7 +8,7 @@ import Icon from '../../Icon';
 const { Column, HeaderCell, Cell } = Table;
 
 const Users = () => {
-  const [checkedKeys, setCheckedKeys] = React.useState([]);
+	const [checkedKeys, setCheckedKeys] = React.useState([]);
 	let checked = false;
 	let indeterminate = false;
 
@@ -21,7 +21,7 @@ const Users = () => {
 	}
 
 	const handleCheckAll = (value, checked) => {
-		const keys = checked ? users.map(item => item.practiceId) : [];
+		const keys = checked ? users.map(item => item.id) : [];
 		setCheckedKeys(keys);
 	};
 	const handleCheck = (value, checked) => {
@@ -29,7 +29,7 @@ const Users = () => {
 		setCheckedKeys(keys);
 	};
 
-  const CheckCell = ({ rowData, onChange, checkedKeys, dataKey, ...props }) => (
+	const CheckCell = ({ rowData, onChange, checkedKeys, dataKey, ...props }) => (
 		<Cell {...props} style={{ padding: 0 }}>
 			<div>
 				<Checkbox
@@ -43,14 +43,31 @@ const Users = () => {
 		</Cell>
 	);
 
-  return (
-    <div className='info-container'>
-      <div className="info-header">
-        Users
-      </div>
-      <Table data={users} autoHeight>
-				<Column width={50} align='center'>
-					<HeaderCell style={{ backgroundColor: '#26A4ED', color: 'white', fontWeight: 'bold', fontSize: 16}}>
+	return (
+		<div className="info-container">
+			<div className="info-header">
+				<div className="info-header-right">
+					<div className="info-header-right-title">Users</div>
+					<div className="info-header-right-search">
+						<input type="text" placeholder="Search by Name..." />
+						<div className="info-header-right-search-icon">
+							<Icon name="search" styles={{ width: 18 }} />
+						</div>
+					</div>
+				</div>
+				<div className="info-header-left">
+					<div className="info-header-left-edit">
+						<Icon name="edit" />
+					</div>
+					<div className="info-header-left-delete">
+						<Icon name="delete" />
+					</div>
+				</div>
+			</div>
+			<Table data={users} autoHeight>
+				<Column width={50} align="center">
+					<HeaderCell
+						style={{ backgroundColor: '#26A4ED', color: 'white', fontWeight: 'bold', fontSize: 16 }}>
 						<div>
 							<Checkbox
 								inline
@@ -61,31 +78,47 @@ const Users = () => {
 							/>
 						</div>
 					</HeaderCell>
-					<CheckCell dataKey="practiceId" checkedKeys={checkedKeys} onChange={handleCheck} />
+					<CheckCell dataKey="id" checkedKeys={checkedKeys} onChange={handleCheck} />
 				</Column>
-				<Column flexGrow={2} align="start" verticalAlign='middle' height={50}>
-					<HeaderCell style={{ backgroundColor: '#26A4ED', color: 'white', fontWeight: 'bold', fontSize: 16}}>Name</HeaderCell>
+				<Column flexGrow={2} align="start" verticalAlign="middle" height={50}>
+					<HeaderCell
+						style={{ backgroundColor: '#26A4ED', color: 'white', fontWeight: 'bold', fontSize: 16 }}>
+						Name
+					</HeaderCell>
 					<Cell dataKey="name" />
 				</Column>
-				<Column flexGrow={2} align="center" verticalAlign='middle'>
-					<HeaderCell style={{ backgroundColor: '#26A4ED', color: 'white', fontWeight: 'bold', fontSize: 16}}>Email</HeaderCell>
-					<Cell dataKey='email' />
+				<Column flexGrow={2} align="center" verticalAlign="middle">
+					<HeaderCell
+						style={{ backgroundColor: '#26A4ED', color: 'white', fontWeight: 'bold', fontSize: 16 }}>
+						Email
+					</HeaderCell>
+					<Cell dataKey="email" />
 				</Column>
-				<Column flexGrow={2} align="center" verticalAlign='middle'>
-					<HeaderCell style={{ backgroundColor: '#26A4ED', color: 'white', fontWeight: 'bold', fontSize: 16}}>Role</HeaderCell>
-					<Cell dataKey='role' />
+				<Column flexGrow={2} align="center" verticalAlign="middle">
+					<HeaderCell
+						style={{ backgroundColor: '#26A4ED', color: 'white', fontWeight: 'bold', fontSize: 16 }}>
+						Role
+					</HeaderCell>
+					<Cell dataKey="role" />
 				</Column>
-				<Column flexGrow={2} align="center" verticalAlign='middle'>
-					<HeaderCell style={{ backgroundColor: '#26A4ED', color: 'white', fontWeight: 'bold', fontSize: 16}}>Active</HeaderCell>
-					<Cell>{rowData => rowData.active ? (
-            <Icon name='active' styles={{width: 20, fill: '#26A4ED'}} />
-          ) : (
-            <Icon name='inactive' styles={{width: 20, fill: 'black'}} />
-          )}</Cell>
+				<Column flexGrow={2} align="center" verticalAlign="middle">
+					<HeaderCell
+						style={{ backgroundColor: '#26A4ED', color: 'white', fontWeight: 'bold', fontSize: 16 }}>
+						Active
+					</HeaderCell>
+					<Cell>
+						{rowData =>
+							rowData.active ? (
+								<Icon name="active" styles={{ width: 20, fill: '#26A4ED' }} />
+							) : (
+								<Icon name="inactive" styles={{ width: 20, fill: 'black' }} />
+							)
+						}
+					</Cell>
 				</Column>
 			</Table>
-    </div>
-  )
-}
+		</div>
+	);
+};
 
-export default Users
+export default Users;

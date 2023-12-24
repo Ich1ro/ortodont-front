@@ -7,10 +7,10 @@ import { Outlet } from 'react-router-dom';
 
 const Info = () => { 
 	return (
-		<div>
+		<>
 			<Sidebar />
 			<Outlet />
-		</div>
+		</>
 	);
 };
 

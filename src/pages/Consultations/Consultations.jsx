@@ -1,10 +1,16 @@
-import React from 'react'
-import './Consultations.scss'
+import React from 'react';
+import './Consultations.scss';
+
+import { Outlet } from 'react-router-dom';
+import { ConsultationsSidebar } from '../../components';
 
 const Consultations = () => {
-  return (
-    <div>Consultations</div>
-  )
-}
+	return (
+		<>
+			<ConsultationsSidebar />
+			<Outlet />
+		</>
+	);
+};
 
-export default Consultations
+export default Consultations;

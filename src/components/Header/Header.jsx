@@ -1,19 +1,20 @@
 import React from 'react';
 import './Header.scss';
+
 import { NavLink } from 'react-router-dom';
 
 const Header = () => {
 	return (
 		<div className="main-header">
 			<NavLink
-				to={'/info'}
+				to={'/info/practice-information'}
 				className={({ isActive, isPending }) =>
 					isPending ? 'header-nav-item' : isActive ? 'header-active header-nav-item' : 'header-nav-item'
 				}>
 				<div className="header-nav-item-info">Practice Info</div>
 			</NavLink>
 			<NavLink
-				to={'/consultations'}
+				to={'/consultations/1'}
 				className={({ isActive, isPending }) =>
 					isPending ? 'header-nav-item' : isActive ? 'header-active header-nav-item' : 'header-nav-item'
 				}>
